@@ -8,4 +8,7 @@ window.addEventListener('load',function(){
 		context.fillRect(eve.layerX,eve.layerY,10,10);
 	}, false);
 
+	canvas.width=window.innerWidth;
+	canvas.height=window.innerHeight;
+
 })
