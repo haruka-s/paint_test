@@ -9,6 +9,10 @@ window.addEventListener('load',function(){
 	}, false);
 
 	canvas.width=window.innerWidth;
-	canvas.height=window.innerHeight;
+	canvas.height=window.innerHeight - 100;
 
+	var button = document.getElementById('id_button');
+	button.addEventListener('click', function(){
+		context.clearRect(0,0,canvas.width,canvas.height);
+	}, false);
 })

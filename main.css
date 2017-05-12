@@ -5,3 +5,7 @@
 body,html{
 margin:0;
 }
+
+div{
+	height: 100px;
+}
