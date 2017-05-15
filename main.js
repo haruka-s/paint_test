@@ -7,12 +7,6 @@ window.addEventListener('load',function(){
 	context.lineWidth=2;
 	context.strokeStyle = 'green';
 
-/*	context.beginPath();
-	context.moveTo(50,50);
-	context.lineTo(150,150);
-	context.closePath();
-	context.stroke();*/
-
 	var flag = false;
 	var x = 0;
 	var y = 0;
@@ -21,36 +15,36 @@ window.addEventListener('load',function(){
 	var color = document.getElementById('id_color');
 	var radio = document.getElementById('id_pen');
 
-	canvas.addEventListener('mousemove', function(eve){
+	canvas.addEventListener('mousemove', function(eve){ //マウスを動かしたとき
 		if(flag === true){
 			console.log(eve);
 
-			var rect = eve.target.getBoundingClientRect();
-			x = eve.clientX - rect.left;
-			y = eve.clientY - rect.top;
+			var rect = eve.target.getBoundingClientRect(); //絶対座標の取得
+			x = eve.clientX - rect.left; //マウスクリックの座標を取得
+			y = eve.clientY - rect.top;  
 			console.log(x,y);
 			//context.fillRect(x,y,10,10);
 
-			if(radio.checked === true){
+			if(radio.checked === true){ //ペンの場合の処理
 				context.beginPath();
 				context.moveTo(prevX,prevY);
 				context.lineTo(x,y);
 				context.closePath();
 				context.stroke();
-				prevX = x;
+				prevX = x;  //１つ前の座標として登録
 				prevY = y;
 				//context.fillRect(x,y,10,10);
 			}
 			else{
-				context.clearRect(x,y,10,10);
+				context.clearRect(x,y,10,10); //消しゴムの場合の処理
 			}
 		}
 //		context.fillRect(eve.layerX,eve.layerY,10,10);
 	}, false);
 
-	canvas.addEventListener('mousedown', function(eve){
+	canvas.addEventListener('mousedown', function(eve){ //マウスを押したとき
 		flag = true;
-		var rect = eve.target.getBoundingClientRect();
+		var rect = eve.target.getBoundingClientRect(); 
 			x = eve.clientX - rect.left;
 			y = eve.clientY - rect.top;
 
@@ -59,16 +53,16 @@ window.addEventListener('load',function(){
 
 	}, false);
 
-	canvas.addEventListener('mouseup', function(eve) {
+	canvas.addEventListener('mouseup', function(eve) { //マウスを離したとき
 		flag = false;
 	}, false);
 
-	var button = document.getElementById('id_button');
-	button.addEventListener('click', function(){
+	var button = document.getElementById('id_button'); 
+	button.addEventListener('click', function(){ //リセットボタンを押したとき
 		context.clearRect(0,0,canvas.width,canvas.height);
 	}, false);
 
-	color.addEventListener("change",function(eve){
+	color.addEventListener("change",function(eve){ //色を変更したとき
 		context.fillStyle=color.value;
 	}, false);
 
