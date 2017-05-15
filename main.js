@@ -63,7 +63,8 @@ window.addEventListener('load',function(){
 	}, false);
 
 	color.addEventListener("change",function(eve){ //色を変更したとき
-		context.fillStyle=color.value;
+		//context.fillStyle=color.value;
+		context.strokeStyle=color.value;
 	}, false);
 
 
