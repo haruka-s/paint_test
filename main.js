@@ -1,9 +1,14 @@
 window.addEventListener('load',function(){
 	var p = new Paint(document.body);
-	console.log(p.getParent());
+	p.setUpWindow(500,500);
+	p.setUpColor('#00fdfa');
+	p.setUpLineWidth(15);
+	var t = new Test();
+	t.setText('hoge', 'fuga');
+	t.appendDOM(document.body);
 });
 
-window.addEventListener('load',function(){
+/*window.addEventListener('load',function(){
 	var canvas = document.getElementById('id_canvas');
 	var context = canvas.getContext('2d');
 	canvas.width=window.innerWidth;
@@ -81,3 +86,4 @@ window.addEventListener('load',function(){
 	}, false);
 
 })
+*/
