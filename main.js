@@ -1,4 +1,9 @@
 window.addEventListener('load',function(){
+	var p = new Paint(document.body);
+	console.log(p.getParent());
+});
+
+window.addEventListener('load',function(){
 	var canvas = document.getElementById('id_canvas');
 	var context = canvas.getContext('2d');
 	canvas.width=window.innerWidth;
