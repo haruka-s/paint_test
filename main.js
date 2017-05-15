@@ -14,6 +14,8 @@ window.addEventListener('load',function(){
 	var prevY = 0;
 	var color = document.getElementById('id_color');
 	var radio = document.getElementById('id_pen');
+	var lineWidth = document.getElementById('id_lineWidth');
+
 
 	canvas.addEventListener('mousemove', function(eve){ //マウスを動かしたとき
 		if(flag === true){
@@ -67,6 +69,10 @@ window.addEventListener('load',function(){
 		context.strokeStyle=color.value;
 	}, false);
 
-
+	lineWidth.addEventListener('change', function (eve) {
+		num = lineWidth.valueAsNumber;
+		//console.log(num);
+		context.lineWidth = num;
+	}, false);
 
 })
